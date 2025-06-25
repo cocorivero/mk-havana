@@ -11,11 +11,11 @@ const PerfumeCard = ({ perfume, onAddToCart, onViewDetails }) => {
           alt={perfume.name}
           className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        {/* {discount > 0 && (
+        {discount > 0 && (
           <div className="absolute top-3 left-3 bg-pink-500 text-white px-2 py-1 rounded-full text-sm font-semibold">
             -{discount}%
           </div>
-        )} */}
+        )}
         {!perfume.inStock && (
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <span className="text-white font-semibold text-lg">Agotado</span>
@@ -46,15 +46,13 @@ const PerfumeCard = ({ perfume, onAddToCart, onViewDetails }) => {
               </svg>
             ))}
           </div>
-          {/* <span className="ml-2 text-sm text-gray-600">({perfume.reviews})</span> */}
+          <span className="ml-2 text-sm text-gray-600">({perfume.reviews})</span>
         </div>
 
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-2">
             <span className="text-2xl font-bold text-pink-900">${perfume.price}</span>
-            {/* {discount > 0 && (
-              <span className="text-lg text-gray-500 line-through">${perfume.originalPrice}</span>
-            )} */}
+            {discount > 0 && <span className="text-lg text-gray-500 line-through">${perfume.originalPrice}</span>}
           </div>
           <span className="text-sm text-gray-500">{perfume.size}</span>
         </div>

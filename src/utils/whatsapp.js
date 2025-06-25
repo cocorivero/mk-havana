@@ -15,7 +15,7 @@ const generateWhatsAppMessage = (cartItems, total) => {
   return encodeURIComponent(message);
 };
 
-const sendWhatsAppMessage = (cartItems, total, phoneNumber = "52412649") => {
+const sendWhatsAppMessage = (cartItems, total, phoneNumber = "50524333") => {
   const message = generateWhatsAppMessage(cartItems, total);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   window.open(whatsappUrl, '_blank');

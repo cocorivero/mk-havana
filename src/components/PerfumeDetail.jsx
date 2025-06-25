@@ -73,9 +73,9 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-3">
                     <span className="text-3xl font-bold text-pink-900">${perfume.price}</span>
-                    {/* {discount > 0 && (
+                    {discount > 0 && (
                       <span className="text-xl text-gray-500 line-through">${perfume.originalPrice}</span>
-                    )} */}
+                    )}
                   </div>
                   <span className="text-lg text-gray-600">{perfume.size}</span>
                 </div>
