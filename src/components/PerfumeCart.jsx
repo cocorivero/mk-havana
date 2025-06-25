@@ -1,4 +1,6 @@
 import React from "react";
+import { Plus } from "lucide-react";
+import { Minus } from "lucide-react";
 
 const PerfumeCart = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCheckout }) => {
   if (!isOpen) return null;
@@ -52,14 +54,14 @@ const PerfumeCart = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveIte
                       onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
                       className="w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center hover:bg-pink-300 transition-colors text-pink-800"
                     >
-                      -
+                      <Minus />
                     </button>
                     <span className="w-8 text-center font-semibold text-pink-800">{item.quantity}</span>
                     <button
                       onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
                       className="w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center hover:bg-pink-300 transition-colors text-pink-800"
                     >
-                      +
+                      <Plus />
                     </button>
                   </div>
                   <button

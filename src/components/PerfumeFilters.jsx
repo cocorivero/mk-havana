@@ -1,13 +1,28 @@
-import React from 'react';
+import React from "react";
 
-const PerfumeFilters = ({ selectedCategory, onCategoryChange, selectedBrand, onBrandChange, priceRange, onPriceChange }) => {
-  const categories = ['Todos', 'Masculino', 'Femenino', 'Unisex'];
-  const brands = ['Todas', 'Luxe Paris', 'Aqua Essence', 'Floral Dreams', 'Arabian Nights', 'Fresh Start', 'Sweet Essence'];
+const PerfumeFilters = ({
+  selectedCategory,
+  onCategoryChange,
+  selectedBrand,
+  onBrandChange,
+  priceRange,
+  onPriceChange,
+}) => {
+  const categories = ["Todos", "Masculino", "Femenino", "Unisex"];
+  const brands = [
+    "Todas",
+    "Luxe Paris",
+    "Aqua Essence",
+    "Floral Dreams",
+    "Arabian Nights",
+    "Fresh Start",
+    "Sweet Essence",
+  ];
 
   return (
     <div className="bg-pink-50 rounded-2xl shadow-lg p-6 mb-8">
       <h3 className="text-lg font-semibold text-pink-900 mb-4">Filtros</h3>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
           <label className="block text-sm font-medium text-pink-700 mb-2">Categoría</label>
@@ -16,8 +31,10 @@ const PerfumeFilters = ({ selectedCategory, onCategoryChange, selectedBrand, onB
             onChange={(e) => onCategoryChange(e.target.value)}
             className="w-full px-3 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-pink-700"
           >
-            {categories.map(category => (
-              <option key={category} value={category}>{category}</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
             ))}
           </select>
         </div>
@@ -29,16 +46,16 @@ const PerfumeFilters = ({ selectedCategory, onCategoryChange, selectedBrand, onB
             onChange={(e) => onBrandChange(e.target.value)}
             className="w-full px-3 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-pink-700"
           >
-            {brands.map(brand => (
-              <option key={brand} value={brand}>{brand}</option>
+            {brands.map((brand) => (
+              <option key={brand} value={brand}>
+                {brand}
+              </option>
             ))}
           </select>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-pink-700 mb-2">
-            Precio máximo: ${priceRange}
-          </label>
+          <label className="block text-sm font-medium text-pink-700 mb-2">Precio máximo: ${priceRange}</label>
           <input
             type="range"
             min="500"
