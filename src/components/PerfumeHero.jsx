@@ -5,7 +5,7 @@ const PerfumeHero = () => {
     <div className="relative text-white py-20">
       <div
         className="absolute inset-0 bg-cover bg-right sm:bg-center bg-no-repeat z-0"
-        style={{ backgroundImage: `url("/img/portada.png")` }}
+        style={{ backgroundImage: `url("img/portada.png")` }}
       />
 
       {/* <div className="absolute inset-0 bg-gradient-to-r from-pink-600/50 to-rose-400/50 z-10" /> */}

@@ -58,10 +58,10 @@ const PerfumeHeader = ({ onSearch, cartCount, onCartClick, onNavigate }) => {
           </div>
 
           <div className="flex items-center space-x-6">
-            <button onClick={onCartClick} className="relative text-pink-600 hover:text-pink-800 transition-colors">
+            <button onClick={onCartClick} className="relative pr-3 text-pink-600 hover:text-pink-800 transition-colors">
               <ShoppingCart />
               {cartCount > 0 && (
-                <span className="absolute -top-3 -right-5 bg-pink-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-2 right-0 translate-x-1/2 bg-pink-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {cartCount}
                 </span>
               )}

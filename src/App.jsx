@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { perfumes } from "./mock/perfumes";
 
@@ -15,7 +15,8 @@ import FooterPage from "./components/FooterPage";
 
 import { sendWhatsAppMessage } from "./utils/whatsapp";
 import { AnimatePresence, motion } from "framer-motion";
-import ScrollToTop from './components/ScrollTop';
+import ScrollToTop from "./components/ScrollTop";
+import HomePage from "./components/HomePage";
 
 const App = () => {
   const [filteredPerfumes, setFilteredPerfumes] = useState(perfumes);
@@ -86,7 +87,7 @@ const App = () => {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <Router>
+    <BrowserRouter>
       <div className="min-h-screen bg-pink-50">
         <PerfumeHeader onSearch={setSearchTerm} cartCount={cartCount} onCartClick={() => setIsCartOpen(true)} />
         <ScrollToTop />
@@ -95,75 +96,22 @@ const App = () => {
           <Route
             path="/"
             element={
-              <>
-                <AnimatePresence>
-                  {!searchTerm.trim() && (
-                    <motion.div
-                      key="perfume-hero"
-                      initial={{ opacity: 0, y: -100 }} // Comienza arriba, invisible
-                      animate={{ opacity: 1, y: 0 }} // Baja suavemente y aparece
-                      exit={{ opacity: 0, y: -100 }} // Sube y desaparece
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                      className="-mt-16 z-0 relative"
-                    >
-                      <PerfumeHero />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                  <PerfumeFilters
-                    selectedCategory={selectedCategory}
-                    onCategoryChange={setSelectedCategory}
-                    selectedBrand={selectedBrand}
-                    onBrandChange={setSelectedBrand}
-                    priceRange={priceRange}
-                    onPriceChange={setPriceRange}
-                  />
-                  <div className="mb-6">
-                    <h2 className="text-2xl font-bold text-pink-900 mb-2">
-                      {searchTerm ? `Resultados para "${searchTerm}"` : "Nuestros Perfumes"}
-                    </h2>
-                    <p className="text-pink-600">
-                      {filteredPerfumes.length}{" "}
-                      {filteredPerfumes.length === 1 ? "producto encontrado" : "productos encontrados"}
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    {filteredPerfumes.map((perfume) => (
-                      <PerfumeCard
-                        key={perfume.id}
-                        perfume={perfume}
-                        onAddToCart={handleAddToCart}
-                        onViewDetails={setSelectedPerfume}
-                      />
-                    ))}
-                  </div>
-                  {filteredPerfumes.length === 0 && (
-                    <div className="text-center py-12">
-                      <svg
-                        className="w-24 h-24 text-pink-300 mx-auto mb-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                      </svg>
-                      <h3 className="text-xl font-semibold text-pink-900 mb-2">No se encontraron productos</h3>
-                      <p className="text-pink-600">Intenta ajustar los filtros o buscar con otros términos</p>
-                    </div>
-                  )}
-                </div>
-              </>
+              <HomePage
+                filteredPerfumes={filteredPerfumes}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                selectedBrand={selectedBrand}
+                setSelectedBrand={setSelectedBrand}
+                priceRange={priceRange}
+                setPriceRange={setPriceRange}
+                searchTerm={searchTerm}
+                handleAddToCart={handleAddToCart}
+                setSelectedPerfume={setSelectedPerfume}
+              />
             }
-          ></Route>
-          <Route path="/aboutUs" element={<AboutUsPage />}></Route>
-          <Route path="/faq" element={<FAQPage />}></Route>
+          />
+          <Route path="/aboutUs" element={<AboutUsPage />} />
+          <Route path="/faq" element={<FAQPage />} />
         </Routes>
 
         <FooterPage />
@@ -183,7 +131,7 @@ const App = () => {
           onCheckout={handleCheckout}
         />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const AboutUsPage = () => {
@@ -115,14 +116,14 @@ const AboutUsPage = () => {
               escucharte!
             </p>
             <p className="text-gray-700 mb-2">
-              <span className="font-semibold">Email:</span> info@perfumeshop.com
+              <span className="font-semibold">Email:</span> mkhavanastore@gmail.com
             </p>
             <p className="text-gray-700 mb-2">
-              <span className="font-semibold">Teléfono:</span> +52 55 1234 5678
+              <span className="font-semibold">Teléfono:</span> +53 50524333
             </p>
             <p className="text-gray-700 mb-4">
-              <span className="font-semibold">Dirección:</span> Calle de los Aromas #123, Colonia Fragancia, Ciudad de
-              México, México
+              <span className="font-semibold">Dirección:</span> Cristina altos #60 e/ Esperanza y Dolores, Arrroyo
+              Naranjo, La Habana, Cuba
             </p>
             <button
               onClick={() =>
@@ -133,9 +134,7 @@ const AboutUsPage = () => {
               }
               className="bg-green-500 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-green-600 transition-colors flex items-center justify-center mx-auto"
             >
-              <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.6-3.807-1.6-5.87 0-6.592 5.306-11.984 11.862-11.984 3.428 0 6.618 1.448 8.938 3.768 2.32 2.32 3.768 5.51 3.768 8.938 0 6.592-5.306 11.984-11.862 11.984-1.998 0-3.995-.48-5.799-1.448l-6.163 1.687zm6.592-3.998c1.185.681 2.542 1.048 3.998 1.048 5.45 0 9.862-4.412 9.862-9.862 0-5.45-4.412-9.862-9.862-9.862-5.45 0-9.862 4.412-9.862 9.862 0 1.456.367 2.813 1.048 3.998l-1.381 5.048 5.048-1.381zM17.5 12.2c-.2-.1-.8-.4-1.2-.6-.4-.2-.7-.2-.9-.2-.2 0-.4.1-.6.3-.2.2-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-1.7-1.6-2.3-2.4-2.6-2.9-.3-.5-.1-.7.1-.9.1-.1.2-.2.3-.3.1-.1.2-.2.3-.4.1-.2 0-.4-.1-.6-.1-.2-.9-2.2-1.2-3-.3-.8-.6-.7-.8-.7-.2 0-.4 0-.6.1-.2.1-.5.2-.8.5-.3.3-1 .9-1 2.2 0 1.3 1 2.5 1.1 2.7.2.2 1.9 3.1 4.6 4.3 2.7 1.2 2.7 1 3.2.9.5-.1 1.5-.6 1.7-.9.2-.2.4-.5.5-.7.1-.2.1-.4.1-.6 0-.2-.1-.4-.2-.5z" />
-              </svg>
+              <FaWhatsapp className="w-7 h-7 mr-2" />
               Envíanos un WhatsApp
             </button>
           </div>
