@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+
+# Optional Tailwind JIT cache
+.tailwind-cache/
+
+# dotenv environment files
+.env*
+!.env.example
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs/editors
+.vscode/
+.idea/
+*.swp
+
+# Logs
+logs/
+*.log
+
+# Testing
+coverage/
+
+# Misc
+*.local
+*.cache/
+
+# Local Netlify folder
+.netlify
