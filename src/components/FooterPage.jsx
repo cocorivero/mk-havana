@@ -39,14 +39,14 @@ const FooterPage = () => {
             >
               <FaInstagram className="w-6 h-6 text-pink-500" />
             </a>
-            <a
+            {/* <a
               href="https://www.facebook.com/tu_cuenta"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
             >
               <FaFacebook className="w-6 h-6 text-blue-600" />
-            </a>
+            </a> */}
           </div>
         </div>
         <p className="text-pink-300 text-sm">

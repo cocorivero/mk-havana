@@ -7,20 +7,20 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-pink-50 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="relative">
+      <div className="bg-pink-50 rounded-2xl w-full max-w-md sm:max-w-4xl h-full sm:h-auto sm:max-h-[90vh] flex flex-col overflow-hidden">
+        <div className="relative flex-1 overflow-y-auto">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 rounded-full p-2  hover:bg-pink-100 transition-colors"
+            className="absolute top-4 right-4 z-10 rounded-full p-2 hover:bg-pink-100 transition-colors"
           >
             <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 sm:p-8">
             <div className="relative">
-              <img src={perfume.image} alt={perfume.name} className="w-full h-96 object-cover rounded-2xl" />
+              <img src={perfume.image} alt={perfume.name} className="w-full h-64 sm:h-96 object-cover rounded-2xl" />
               {discount > 0 && (
                 <div className="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   -{discount}%
@@ -81,7 +81,7 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
                 </div>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-3 mt-4 mb-2">
                 <button
                   onClick={() => onAddToCart(perfume)}
                   disabled={!perfume.inStock}

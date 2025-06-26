@@ -9,36 +9,36 @@ const PerfumeCard = ({ perfume, onAddToCart, onViewDetails }) => {
         <img
           src={perfume.image}
           alt={perfume.name}
-          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
         />
         {discount > 0 && (
-          <div className="absolute top-3 left-3 bg-pink-500 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          <div className="absolute top-3 left-3 bg-pink-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
             -{discount}%
           </div>
         )}
         {!perfume.inStock && (
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <span className="text-white font-semibold text-lg">Agotado</span>
+            <span className="text-white font-semibold text-sm">Agotado</span>
           </div>
         )}
       </div>
 
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-pink-600 font-medium">{perfume.brand}</span>
-          <span className="text-sm text-gray-500">{perfume.category}</span>
+      <div className="p-4">
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-xs text-pink-600 font-medium">{perfume.brand}</span>
+          <span className="text-xs text-gray-500">{perfume.category}</span>
         </div>
 
-        <h3 className="text-xl font-bold text-pink-900 mb-2">{perfume.name}</h3>
+        <h3 className="text-lg font-bold text-pink-900 mb-1">{perfume.name}</h3>
 
-        <p className="text-gray-600 text-sm mb-3 line-clamp-2">{perfume.description}</p>
+        <p className="text-gray-600 text-xs mb-2 line-clamp-2">{perfume.description}</p>
 
-        <div className="flex items-center mb-3">
+        <div className="flex items-center mb-2">
           <div className="flex items-center">
             {[...Array(5)].map((_, i) => (
               <svg
                 key={i}
-                className={`w-4 h-4 ${i < Math.floor(perfume.rating) ? "text-yellow-400" : "text-gray-300"}`}
+                className={`w-3.5 h-3.5 ${i < Math.floor(perfume.rating) ? "text-yellow-400" : "text-gray-300"}`}
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -46,28 +46,28 @@ const PerfumeCard = ({ perfume, onAddToCart, onViewDetails }) => {
               </svg>
             ))}
           </div>
-          <span className="ml-2 text-sm text-gray-600">({perfume.reviews})</span>
+          <span className="ml-1 text-xs text-gray-600">({perfume.reviews})</span>
         </div>
 
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-pink-900">${perfume.price}</span>
-            {discount > 0 && <span className="text-lg text-gray-500 line-through">${perfume.originalPrice}</span>}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center space-x-1">
+            <span className="text-lg font-bold text-pink-900">${perfume.price}</span>
+            {discount > 0 && <span className="text-sm text-gray-500 line-through">${perfume.originalPrice}</span>}
           </div>
-          <span className="text-sm text-gray-500">{perfume.size}</span>
+          <span className="text-xs text-gray-500">{perfume.size}</span>
         </div>
 
         <div className="flex space-x-2">
           <button
             onClick={() => onViewDetails(perfume)}
-            className="flex-1 bg-pink-100 text-pink-700 py-2 px-4 rounded-lg hover:bg-pink-200 transition-colors font-medium"
+            className="flex-1 bg-pink-100 text-pink-700 py-1 px-2 rounded-md text-sm hover:bg-pink-200 transition-colors"
           >
             Detalles
           </button>
           <button
             onClick={() => onAddToCart(perfume)}
             disabled={!perfume.inStock}
-            className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
+            className={`flex-1 py-1 px-2 rounded-md text-sm font-medium transition-colors ${
               perfume.inStock
                 ? "bg-pink-600 text-white hover:bg-pink-700"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
