@@ -1,4 +1,3 @@
-import React from "react";
 import PerfumeHero from "./PerfumeHero";
 import PerfumeFilters from "./PerfumeFilters";
 import PerfumeCard from "./PerfumeCard";

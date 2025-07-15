@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { perfumes } from "./mock/perfumes";
 
 import PerfumeHeader from "./components/PerfumeHeader";
-import PerfumeHero from "./components/PerfumeHero";
-import PerfumeFilters from "./components/PerfumeFilters";
-import PerfumeCard from "./components/PerfumeCard";
 import PerfumeDetail from "./components/PerfumeDetail";
 import PerfumeCart from "./components/PerfumeCart";
 import AboutUsPage from "./components/AboutUsPage";
@@ -14,7 +11,6 @@ import FAQPage from "./components/FAQPage";
 import FooterPage from "./components/FooterPage";
 
 import { sendWhatsAppMessage } from "./utils/whatsapp";
-import { AnimatePresence, motion } from "framer-motion";
 import ScrollToTop from "./components/ScrollTop";
 import HomePage from "./components/HomePage";
 
@@ -22,7 +18,7 @@ const App = () => {
   const [filteredPerfumes, setFilteredPerfumes] = useState(perfumes);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [selectedBrand, setSelectedBrand] = useState("Todas");
-  const [priceRange, setPriceRange] = useState(3000);
+  const [priceRange, setPriceRange] = useState(Math.max(...perfumes.map((p) => p.price)) + 10);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedPerfume, setSelectedPerfume] = useState(null);
   const [cartItems, setCartItems] = useState([]);
@@ -79,7 +75,7 @@ const App = () => {
   const handleCheckout = () => {
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     sendWhatsAppMessage(cartItems, total);
-    setCartItems([]); // Vaciar carrito después de "comprar"
+    setCartItems([]); 
     setIsCartOpen(false);
     alert("Tu pedido ha sido enviado. ¡Gracias por tu compra!");
   };

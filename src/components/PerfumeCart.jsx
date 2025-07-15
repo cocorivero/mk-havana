@@ -1,6 +1,7 @@
 import React from "react";
 import { Plus } from "lucide-react";
 import { Minus } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 const PerfumeCart = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCheckout }) => {
   if (!isOpen) return null;
@@ -24,19 +25,7 @@ const PerfumeCart = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveIte
         <div className="flex-1 p-6">
           {cartItems.length === 0 ? (
             <div className="text-center py-12">
-              <svg
-                className="w-16 h-16 text-pink-300 mx-auto mb-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                />
-              </svg>
+               <ShoppingCart className="w-16 h-16 text-pink-300 mx-auto mb-4" />
               <p className="text-pink-500">Tu carrito está vacío</p>
             </div>
           ) : (

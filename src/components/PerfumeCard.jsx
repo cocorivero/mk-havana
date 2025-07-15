@@ -9,6 +9,7 @@ const PerfumeCard = ({ perfume, onAddToCart, onViewDetails }) => {
         <img
           src={perfume.image}
           alt={perfume.name}
+          loading="lazy"
           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
         />
         {discount > 0 && (
@@ -33,7 +34,7 @@ const PerfumeCard = ({ perfume, onAddToCart, onViewDetails }) => {
 
         <p className="text-gray-600 text-xs mb-2 line-clamp-2">{perfume.description}</p>
 
-        <div className="flex items-center mb-2">
+        {/* <div className="flex items-center mb-2">
           <div className="flex items-center">
             {[...Array(5)].map((_, i) => (
               <svg
@@ -47,14 +48,17 @@ const PerfumeCard = ({ perfume, onAddToCart, onViewDetails }) => {
             ))}
           </div>
           <span className="ml-1 text-xs text-gray-600">({perfume.reviews})</span>
-        </div>
+        </div> */}
 
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center space-x-1">
             <span className="text-lg font-bold text-pink-900">${perfume.price}</span>
             {discount > 0 && <span className="text-sm text-gray-500 line-through">${perfume.originalPrice}</span>}
           </div>
-          <span className="text-xs text-gray-500">{perfume.size}</span>
+          <div className="flex items-center space-x-1">
+            <span className="text-xs text-gray-500">{perfume.format}</span>
+            <span className="text-xs text-gray-500">{perfume.size}</span>
+          </div>
         </div>
 
         <div className="flex space-x-2">
