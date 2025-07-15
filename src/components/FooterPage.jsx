@@ -7,22 +7,22 @@ const FooterPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-4">
           <h3 className="text-2xl font-bold text-pink-200 mb-2">MK Havana</h3>
-          <p className="text-pink-100">Tu destino para fragancias exclusivas.</p>
+          <p className="text-pink-100">Tu destino para fragancias exclusivas</p>
         </div>
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-4 text-pink-100">
+        {/* <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-4 text-pink-100">
           <Link to="/aboutUs" className="hover:text-pink-300 transition-colors">
             Sobre Nosotros
           </Link>
-          {/* <a href="#" className="hover:text-pink-300 transition-colors">
+          <a href="#" className="hover:text-pink-300 transition-colors">
             Política de Privacidad
           </a>
           <a href="#" className="hover:text-pink-300 transition-colors">
             Términos y Condiciones
-          </a> */}
+          </a>
           <Link to="/faq" className="hover:text-pink-300 transition-colors">
             Preguntas Frecuentes
           </Link>
-        </div>
+        </div> */}
         <div className="mb-4 text-pink-100">
           <p>Teléfono: +52 50524333</p>
           <p>Email: mkhavanastore@gmail.com</p>

@@ -17,18 +17,11 @@ const PerfumeHeader = ({ onSearch, cartCount, onCartClick, onNavigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
-            <Link to="/">
-              <div className="flex items-center cursor-pointer">
-                {/* <img src="/img/icon-hear.png" alt="PerfumeShop Logo" className="h-10 w-10 rounded-full object-cover" /> */}
-                {/* <h1 className="ml-2 text-3xl font-bold text-pink-900">MK Havana</h1> */}
-                <h1 className="ml-2 text-3xl font-bold text-pink-900 flex items-center space-x-1">
-                  <span className="flex items-center">
-                    M
-                    <FaHeart className="mx-1 text-pink-600 w-7 h-7 mt-1" />K
-                  </span>
-                  <span className="ml-1">Havana</span>
-                </h1>
-              </div>
+            <Link to="/" className="flex items-center space-x-2">
+              <h1 className="text-3xl font-bold text-pink-900 flex items-center">
+                M<FaHeart className="mx-2 text-pink-600 w-7 h-7 mt-1" />K
+                <span className="ml-1 hidden sm:inline">Havana</span>
+              </h1>
             </Link>
           </div>
 

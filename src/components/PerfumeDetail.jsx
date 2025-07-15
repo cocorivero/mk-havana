@@ -20,7 +20,12 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 sm:p-8">
             <div className="relative">
-              <img src={perfume.image} alt={perfume.name} className="w-full h-64 sm:h-96 object-cover rounded-2xl" />
+              <img
+                src={perfume.image}
+                alt={perfume.name}
+                loading="lazy"
+                className="w-full h-64 sm:h-96 object-cover rounded-2xl"
+              />
               {discount > 0 && (
                 <div className="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   -{discount}%
@@ -39,7 +44,7 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
                   <span className="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">{perfume.category}</span>
                 </div>
 
-                <div className="flex items-center mb-4">
+                {/* <div className="flex items-center mb-4">
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
                       <svg
@@ -55,7 +60,7 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
                   <span className="ml-2 text-gray-600">
                     {perfume.rating} ({perfume.reviews} reseñas)
                   </span>
-                </div>
+                </div> */}
 
                 <p className="text-gray-700 mb-6 leading-relaxed">{perfume.description}</p>
 
@@ -77,7 +82,10 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
                       <span className="text-xl text-gray-500 line-through">${perfume.originalPrice}</span>
                     )}
                   </div>
-                  <span className="text-lg text-gray-600">{perfume.size}</span>
+                  <div className="flex items-center space-x-3">
+                    <span className="text-lg text-gray-600">{perfume.format}</span>
+                    <span className="text-lg text-gray-600">{perfume.size}</span>
+                  </div>
                 </div>
               </div>
 

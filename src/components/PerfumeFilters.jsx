@@ -1,4 +1,5 @@
 import React from "react";
+import { perfumes } from "../mock/perfumes";
 
 const PerfumeFilters = ({
   selectedCategory,
@@ -8,17 +9,11 @@ const PerfumeFilters = ({
   priceRange,
   onPriceChange,
 }) => {
-  const categories = ["Todos", "Masculino", "Femenino", "Unisex"];
-  const brands = [
-    "Todas",
-    "Luxe Paris",
-    "Aqua Essence",
-    "Floral Dreams",
-    "Arabian Nights",
-    "Fresh Start",
-    "Sweet Essence",
-  ];
-
+  const categories = ["Todas", ...new Set(perfumes.map((perfume) => perfume.category))];
+  const brands = ["Todas", ...new Set(perfumes.map((perfume) => perfume.brand))];
+  const prices = perfumes.map((p) => p.price);
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
   return (
     <div className="bg-pink-50 rounded-2xl shadow-lg p-6 mb-8">
       <h3 className="text-lg font-semibold text-pink-900 mb-4">Filtros</h3>
@@ -29,7 +24,7 @@ const PerfumeFilters = ({
           <select
             value={selectedCategory}
             onChange={(e) => onCategoryChange(e.target.value)}
-            className="w-full px-3 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-pink-700"
+            className="w-full px-3 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-pink-700 cursor-pointer"
           >
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -44,7 +39,7 @@ const PerfumeFilters = ({
           <select
             value={selectedBrand}
             onChange={(e) => onBrandChange(e.target.value)}
-            className="w-full px-3 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-pink-700"
+            className="w-full px-3 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-pink-700 cursor-pointer"
           >
             {brands.map((brand) => (
               <option key={brand} value={brand}>
@@ -58,16 +53,16 @@ const PerfumeFilters = ({
           <label className="block text-sm font-medium text-pink-700 mb-2">Precio máximo: ${priceRange}</label>
           <input
             type="range"
-            min="500"
-            max="3000"
-            step="100"
+            min={minPrice - 10}
+            max={maxPrice + 10}
+            step="10"
             value={priceRange}
             onChange={(e) => onPriceChange(parseInt(e.target.value))}
             className="w-full h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer slider"
           />
           <div className="flex justify-between text-sm text-pink-500 mt-1">
-            <span>$500</span>
-            <span>$3000</span>
+            <span>${minPrice - 10}</span>
+            <span>${maxPrice + 10}</span>
           </div>
         </div>
       </div>
