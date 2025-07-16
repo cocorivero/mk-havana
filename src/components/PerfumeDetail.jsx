@@ -24,6 +24,7 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
                 src={perfume.image}
                 alt={perfume.name}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-64 sm:h-96 object-cover rounded-2xl"
               />
               {discount > 0 && (
