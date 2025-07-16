@@ -4,7 +4,7 @@ const PerfumeCard = ({ perfume, onAddToCart, onViewDetails }) => {
   const discount = Math.round(((perfume.originalPrice - perfume.price) / perfume.originalPrice) * 100);
 
   return (
-    <div className="bg-pink-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+    <div className="bg-pink-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col justify-between">
       <div className="relative overflow-hidden">
         <img
           src={perfume.image}

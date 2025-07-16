@@ -15,7 +15,7 @@ const PerfumeFilters = ({
   const minPrice = Math.min(...prices);
   const maxPrice = Math.max(...prices);
   return (
-    <div className="bg-pink-50 rounded-2xl shadow-lg p-6 mb-8">
+    <div className="bg-pink-50 rounded-2xl shadow-lg p-6">
       <h3 className="text-lg font-semibold text-pink-900 mb-4">Filtros</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

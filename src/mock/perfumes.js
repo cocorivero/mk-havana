@@ -212,7 +212,7 @@ const perfumes = [
     name: "CK Obsession",
     brand: "Calvin Klein",
     price: 55,
-    originalPrice: 1399,
+    originalPrice: 0,
     image: "img-600/15- CK Obsession EDT.webp",
     category: "Men",
     description: "Aromática y especiada. Fragancia intensa para él.",
