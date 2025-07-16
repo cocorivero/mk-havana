@@ -28,20 +28,22 @@ const HomePage = ({
             className="-mt-16 z-0 relative"
           >
             <PerfumeHero />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+              <PerfumeFilters
+                selectedCategory={selectedCategory}
+                onCategoryChange={setSelectedCategory}
+                selectedBrand={selectedBrand}
+                onBrandChange={setSelectedBrand}
+                priceRange={priceRange}
+                onPriceChange={setPriceRange}
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <PerfumeFilters
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-          selectedBrand={selectedBrand}
-          onBrandChange={setSelectedBrand}
-          priceRange={priceRange}
-          onPriceChange={setPriceRange}
-        />
-        <div className="mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+        <div className="my-4">
           <h2 className="text-2xl font-bold text-pink-900 mb-2">
             {searchTerm ? `Resultados para "${searchTerm}"` : "Nuestros Perfumes"}
           </h2>

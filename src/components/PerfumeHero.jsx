@@ -1,6 +1,24 @@
 import React from "react";
 
+import { LuStar } from "react-icons/lu";
+import { FaMotorcycle } from "react-icons/fa";
+import { LucideCheckCircle } from "lucide-react";
 const PerfumeHero = () => {
+  const features = [
+    {
+      icon: <LuStar className="w-8 h-8 text-pink-200" />,
+      text: "Productos originales",
+    },
+    {
+      icon: <FaMotorcycle className="w-8 h-8 text-pink-200" />,
+      text: "Servicio de mensajería",
+    },
+    {
+      icon: <LucideCheckCircle className="w-8 h-8 text-pink-200" />,
+      text: "Calidad garantizada",
+    },
+  ];
+
   return (
     <div className="relative text-white py-20">
       <div
@@ -22,39 +40,15 @@ const PerfumeHero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:justify-start">
-          {/* Bloque 1 */}
-          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4 flex items-center space-x-3">
-            <svg className="w-8 h-8 text-pink-200" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            <span className="font-semibold">Calidad Premium</span>
-          </div>
-
-          {/* Bloque 2 */}
-          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4 flex items-center space-x-3">
-            <svg className="w-8 h-8 text-pink-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-              />
-            </svg>
-            <span className="font-semibold">Envío a Domicilio</span>
-          </div>
-
-          {/* Bloque 3 */}
-          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4 flex items-center space-x-3">
-            <svg className="w-8 h-8 text-pink-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span className="font-semibold">Garantía 100%</span>
-          </div>
+          {features.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white/20 backdrop-blur-md rounded-lg px-5 py-4 flex items-center gap-3 shadow-lg"
+            >
+              {item.icon}
+              <span className="font-medium">{item.text}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

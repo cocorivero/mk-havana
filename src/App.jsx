@@ -16,7 +16,7 @@ import HomePage from "./components/HomePage";
 
 const App = () => {
   const [filteredPerfumes, setFilteredPerfumes] = useState(perfumes);
-  const [selectedCategory, setSelectedCategory] = useState("Todos");
+  const [selectedCategory, setSelectedCategory] = useState("Todas");
   const [selectedBrand, setSelectedBrand] = useState("Todas");
   const [priceRange, setPriceRange] = useState(Math.max(...perfumes.map((p) => p.price)) + 10);
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,7 +27,7 @@ const App = () => {
   useEffect(() => {
     let filtered = perfumes;
 
-    if (selectedCategory !== "Todos") {
+    if (selectedCategory !== "Todas") {
       filtered = filtered.filter((perfume) => perfume.category === selectedCategory);
     }
 
@@ -75,17 +75,24 @@ const App = () => {
   const handleCheckout = () => {
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     sendWhatsAppMessage(cartItems, total);
-    setCartItems([]); 
+    setCartItems([]);
     setIsCartOpen(false);
     alert("Tu pedido ha sido enviado. ¡Gracias por tu compra!");
   };
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    setSelectedCategory("Todas");
+    setSelectedBrand("Todas");
+    setPriceRange(Math.max(...perfumes.map((p) => p.price)) + 10);
+  };
+
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-pink-50">
-        <PerfumeHeader onSearch={setSearchTerm} cartCount={cartCount} onCartClick={() => setIsCartOpen(true)} />
+        <PerfumeHeader onSearch={handleSearch} cartCount={cartCount} onCartClick={() => setIsCartOpen(true)} />
         <ScrollToTop />
 
         <Routes>
