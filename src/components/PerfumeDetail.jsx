@@ -9,16 +9,26 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-pink-50 rounded-2xl w-full max-w-md sm:max-w-4xl h-full sm:h-auto sm:max-h-[90vh] flex flex-col overflow-hidden">
         <div className="relative flex-1 overflow-y-auto">
+          {/* Botón de cerrar para móvil: visible solo en sm- */}
+          <div className="flex justify-end sm:hidden p-4 bg-pink-50">
+            <button onClick={onClose} className="rounded-full hover:bg-pink-100 transition-colors">
+              <svg className="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Botón de cerrar para escritorio */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 rounded-full p-2 hover:bg-pink-100 transition-colors"
+            className="hidden sm:block absolute top-4 right-4 z-10 rounded-full p-2 hover:bg-pink-100 transition-colors"
           >
-            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 pb-6 sm:p-8">
             <div className="relative">
               <img
                 src={perfume.image}
@@ -46,22 +56,22 @@ const PerfumeDetail = ({ perfume, onClose, onAddToCart }) => {
                 </div>
 
                 {/* <div className="flex items-center mb-4">
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className={`w-5 h-5 ${i < Math.floor(perfume.rating) ? "text-yellow-400" : "text-gray-300"}`}
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span className="ml-2 text-gray-600">
-                    {perfume.rating} ({perfume.reviews} reseñas)
-                  </span>
-                </div> */}
+              <div className="flex items-center">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    className={`w-5 h-5 ${i < Math.floor(perfume.rating) ? "text-yellow-400" : "text-gray-300"}`}
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                ))}
+              </div>
+              <span className="ml-2 text-gray-600">
+                {perfume.rating} ({perfume.reviews} reseñas)
+              </span>
+            </div> */}
 
                 <p className="text-gray-700 mb-6 leading-relaxed">{perfume.description}</p>
 
