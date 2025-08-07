@@ -5,5 +5,6 @@ describe("Test", () => {
     cy.get(".my-4 > .text-pink-600").should("have.text", "35 productos encontrados");
     cy.get('select').first().select('Men')
     cy.get('.my-4 > .text-pink-600').should("have.text", "13 productos encontrados");
+    
   });
 });
