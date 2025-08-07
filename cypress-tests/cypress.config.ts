@@ -17,7 +17,9 @@ export default defineConfig({
 
   e2e: {
     baseUrl: process.env.CYPRESS_BASE_URL,
-
+    video: true, 
+    screenshotOnRunFailure: true,
+    
     setupNodeEvents(on, config) {
       on("before:browser:launch", (browser, launchOptions) => {
         if (browser.family === "chromium" && browser.name !== "electron") {
