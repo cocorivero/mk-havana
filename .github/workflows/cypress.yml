@@ -30,6 +30,19 @@ jobs: # define el workflow y las configuraciones
       - name: Cypress run (Cypress Cloud)
         uses: cypress-io/github-action@v6 # corre los tests
         with:
-          record: true # habilita el registro en Cypress Cloud
-          parallel: true # activa ejecución paralela entre contenedores
-          working-directory: cypress-tests # especifica la carpeta raíz del proyecto de pruebas
+          node-version: 20
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar Cypress tests
+        run: npm test
+
+      - name: Subir videos/screenshots si fallan
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress-tests/cypress/videos
+            cypress-tests/cypress/screenshots
