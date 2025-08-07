@@ -1,0 +1,6 @@
+.env
+node_modules
+screenshots
+downloads
+videos
+cypress/e2e/beta.cy.ts
