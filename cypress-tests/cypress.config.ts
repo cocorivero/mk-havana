@@ -15,6 +15,8 @@ export default defineConfig({
   // videoCompression: false,
   // trashAssetsBeforeRuns: false,
 
+  projectId: "fknojv",
+
   e2e: {
     baseUrl: process.env.CYPRESS_BASE_URL,
 

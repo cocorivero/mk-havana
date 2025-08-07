@@ -14,33 +14,27 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     containers: [1, 2]
+
     defaults:
       run:
         working-directory: cypress-tests
 
     env:
       CYPRESS_BASE_URL: https://mk-havana.vercel.app/
+      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Cypress run (Cypress Cloud)
+        uses: cypress-io/github-action@v6
         with:
-          node-version: 20
-
-      - name: Instalar dependencias
-        run: npm install
-
-      - name: Ejecutar Cypress tests
-        run: npm test
-
-      - name: Subir videos/screenshots si fallan
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-artifacts
-          path: |
-            cypress/videos
-            cypress/screenshots
+          record: true
+          parallel: true
+          working-directory: cypress-tests
