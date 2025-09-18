@@ -35,7 +35,7 @@ const PerfumeHero = () => {
         </h1>
 
         <p className="text-xl md:text-2xl mb-8 max-w-3xl text-left">
-          Explora nuestra exclusiva colección de perfumes de las mejores marcas del mundo. Encuentra la fragancia que
+          Explora nuestra colección de perfumes de las mejores marcas del mundo. Encuentra la fragancia que
           define tu personalidad.
         </p>
 

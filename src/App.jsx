@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { perfumes } from "./mock/perfumes";
 
@@ -89,6 +90,14 @@ const App = () => {
     setPriceRange(Math.max(...perfumes.map((p) => p.price)) + 10);
   };
 
+  const getPerfumeById = (id) => perfumes.find((p) => String(p.id) === String(id));
+
+  const PerfumeDetailWrapper = ({ handleAddToCart }) => {
+    const { id } = useParams();
+    const perfume = getPerfumeById(id);
+    return <PerfumeDetail perfume={perfume} onAddToCart={handleAddToCart} />;
+  };
+  
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-pink-50">
@@ -115,15 +124,10 @@ const App = () => {
           />
           <Route path="/aboutUs" element={<AboutUsPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/perfumes/:id" element={<PerfumeDetailWrapper handleAddToCart={handleAddToCart} />} />
         </Routes>
 
         <FooterPage />
-
-        <PerfumeDetail
-          perfume={selectedPerfume}
-          onClose={() => setSelectedPerfume(null)}
-          onAddToCart={handleAddToCart}
-        />
 
         <PerfumeCart
           isOpen={isCartOpen}
