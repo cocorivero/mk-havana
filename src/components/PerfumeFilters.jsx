@@ -8,17 +8,26 @@ const PerfumeFilters = ({
   onBrandChange,
   priceRange,
   onPriceChange,
+  // NUEVAS PROPS:
+  selectedAvailability,
+  onAvailabilityChange,
 }) => {
   const categories = ["Todas", ...new Set(perfumes.map((perfume) => perfume.category))];
   const brands = ["Todas", ...new Set(perfumes.map((perfume) => perfume.brand))];
+
   const prices = perfumes.map((p) => p.price);
   const minPrice = Math.min(...prices);
   const maxPrice = Math.max(...prices);
+
+  // Opciones de disponibilidad
+  const availabilityOptions = ["Todas", "Disponibles", "En camino", "Agotados"];
+
   return (
     <div className="bg-pink-50 rounded-2xl shadow-lg p-6">
       <h3 className="text-lg font-semibold text-pink-900 mb-4">Filtros</h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {/* Categoría */}
         <div>
           <label className="block text-sm font-medium text-pink-700 mb-2">Categoría</label>
           <select
@@ -34,6 +43,7 @@ const PerfumeFilters = ({
           </select>
         </div>
 
+        {/* Marca */}
         <div>
           <label className="block text-sm font-medium text-pink-700 mb-2">Marca</label>
           <select
@@ -49,8 +59,27 @@ const PerfumeFilters = ({
           </select>
         </div>
 
+        {/* Disponibilidad (NUEVO) */}
         <div>
-          <label className="block text-sm font-medium text-pink-700 mb-2">Precio máximo: ${priceRange}</label>
+          <label className="block text-sm font-medium text-pink-700 mb-2">Disponibilidad</label>
+          <select
+            value={selectedAvailability}
+            onChange={(e) => onAvailabilityChange(e.target.value)}
+            className="w-full px-3 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-pink-700 cursor-pointer"
+          >
+            {availabilityOptions.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Precio */}
+        <div>
+          <label className="block text-sm font-medium text-pink-700 mb-2">
+            Precio máximo: ${priceRange}
+          </label>
           <input
             type="range"
             min={minPrice - 10}
