@@ -46,7 +46,7 @@ const PerfumeCard = ({ perfume, onAddToCart }) => {
           )}
           {!perfume.inStock && (
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-              <span className="text-white font-semibold text-sm">{perfume.upComing ? "Disponible pronto" : "Agotado"}</span>
+              <span className="text-white font-semibold text-sm">{perfume.upComing ? "En camino" : "Agotado"}</span>
             </div>
           )}
         </div>
